@@ -110,7 +110,56 @@ footer.onclick = revealFooterLink;
         La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
      */
 
-const generateTable = function () {};
+const tableArea = document.getElementById("tableArea");
+const generateTable = function () {
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const tr = document.createElement("tr");
+  const title = ["Immagine", "Nome Prodotto", "Quantità", "Prezzo"];
+
+  title.forEach((str) => {
+    const th = document.createElement("th");
+    th.innerText = str;
+    th.style = `padding: 1rem 25px;`;
+    tr.appendChild(th);
+  });
+  thead.appendChild(tr);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
+
+  for (let i = 0; i < 5; i++) {
+    const tr = document.createElement("tr");
+    const img = document.createElement("img");
+    img.src = `https://picsum.photos/600/450?q=${i}`;
+    img.alt = "Immagine prodotto";
+    img.style = "width: 100px";
+
+    const imgCell = document.createElement("td");
+    imgCell.appendChild(img);
+
+    const nameCell = document.createElement("td");
+    nameCell.innerText = `Prodotto ${i + 1}`;
+
+    const quantityCell = document.createElement("td");
+    quantityCell.innerText = `${i + 1} pezzo/i`;
+
+    const priceCell = document.createElement("td");
+    priceCell.innerText = `$${(i + 1) * 10}.00`;
+
+    tr.appendChild(imgCell);
+    tr.appendChild(nameCell);
+    tr.appendChild(quantityCell);
+    tr.appendChild(priceCell);
+
+    tbody.appendChild(tr);
+  }
+
+  table.appendChild(tbody);
+  tableArea.appendChild(table);
+};
+
+generateTable();
 
 /* ESERCIZIO 12
         Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
