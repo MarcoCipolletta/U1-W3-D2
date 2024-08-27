@@ -68,7 +68,12 @@ addParagraph(firstDiv);
         Scrivi una funzione che faccia scomparire la prima lista non ordinata
      */
 
-const hideFirstUl = function () {};
+const firstUl = document.querySelector("ul");
+const hideFirstUl = function (tag) {
+  tag.remove();
+};
+
+hideFirstUl(firstUl);
 
 /* ESERCIZIO 8 
         Scrivi una funzione che renda verde il background di ogni lista non ordinata
