@@ -29,8 +29,11 @@ changePcontent();
 /* ESERCIZIO 4
         Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
        */
-
-const changeUrls = function () {};
+const links = document.querySelectorAll("a:not(footer a)");
+const changeUrls = function () {
+  links.forEach((link) => (link.href = "https://www.google.com"));
+};
+changeUrls();
 
 /* ESERCIZIO 5
         Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
