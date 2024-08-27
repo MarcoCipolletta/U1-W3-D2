@@ -6,7 +6,6 @@ const h1 = document.querySelector("h1");
 const changeTitle = function () {
   h1.innerText = "Nuovo titolo";
 };
-
 changeTitle();
 
 /* ESERCIZIO 2
@@ -21,8 +20,11 @@ addClassToTitle();
 /* ESERCIZIO 3
         Scrivi una funzione che cambi il testo dei p figli di un div
        */
-
-const changePcontent = function () {};
+const pChildrenOfDiv = document.querySelectorAll("div p");
+const changePcontent = function () {
+  pChildrenOfDiv.forEach((node) => (node.innerText = "Questo è il nuovo testo dopo l'esercizio 3"));
+};
+changePcontent();
 
 /* ESERCIZIO 4
         Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
