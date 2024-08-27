@@ -159,13 +159,40 @@ const generateTable = function () {
   tableArea.appendChild(table);
 };
 
-generateTable();
+const generatedTable = generateTable();
 
 /* ESERCIZIO 12
         Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
      */
+const addImg = document.createElement("img");
+addImg.src = `https://picsum.photos/600/450?q=10`;
+addImg.alt = "Immagine prodotto";
+addImg.style = "width: 100px";
 
-const addRow = function () {};
+const addRow = function (img, name, quantity, price) {
+  const tr = document.createElement("tr");
+
+  const imgCell = document.createElement("td");
+  imgCell.appendChild(img);
+
+  const nameCell = document.createElement("td");
+  nameCell.innerText = name;
+
+  const quantityCell = document.createElement("td");
+  quantityCell.innerText = quantity;
+
+  const priceCell = document.createElement("td");
+  priceCell.innerText = price;
+
+  tr.appendChild(imgCell);
+  tr.appendChild(nameCell);
+  tr.appendChild(quantityCell);
+  tr.appendChild(priceCell);
+
+  generatedTable.appendChild(tr);
+};
+
+addRow(addImg, "Prodotto 6", "6 pezzi", "$60.00");
 
 /* ESERCIZIO 14
        Crea una funzione che nasconda le immagini della tabella quando eseguita
