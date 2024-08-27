@@ -68,19 +68,23 @@ addParagraph(firstDiv);
         Scrivi una funzione che faccia scomparire la prima lista non ordinata
      */
 
-const firstUl = document.querySelector("ul");
-const hideFirstUl = function (tag) {
-  tag.innerHTML = "";
-};
+// const firstUl = document.getElementById("firstList");
+// const hideFirstUl = function () {
+//   firstUl.innerHTML = "";
+// };
 
-hideFirstUl(firstUl);
+const firstUl = document.getElementById("firstList");
+const hideFirstUl = function () {
+  firstUl.style.display = "none";
+};
+hideFirstUl();
 
 /* ESERCIZIO 8 
         Scrivi una funzione che renda verde il background di ogni lista non ordinata
        */
 const allUl = document.querySelectorAll("ul");
 const paintItGreen = function (tag) {
-  tag.forEach((element) => (element.style = "background-color: green"));
+  tag.forEach((element) => (element.style.backgroundColor = " green"));
 };
 
 paintItGreen(allUl);
@@ -90,7 +94,8 @@ paintItGreen(allUl);
        */
 
 const makeItClickable = function () {
-  h1.innerText = h1.innerText.slice(0, -1);
+  h1.innerText = h1.innerText.slice(0, h1.innerText.length - 1);
+  console.log(h1.innerText, h1.innerText.length);
 };
 h1.onclick = makeItClickable;
 
@@ -208,5 +213,14 @@ hideAllImages();
 /* EXTRA ESERCIZIO 15
        Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
      */
+const h2 = document.getElementById("changeMyColor");
 
-const changeColorWithRandom = function () {};
+const changeColorWithRandom = function () {
+  const randomNmbr = () => Math.floor(Math.random() * 256);
+  const rgb1 = randomNmbr();
+  const rgb2 = randomNmbr();
+  const rgb3 = randomNmbr();
+  h2.style.color = ` rgb(${rgb1} ${rgb2} ${rgb3})`;
+};
+
+h2.onclick = changeColorWithRandom;
