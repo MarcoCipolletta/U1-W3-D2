@@ -6,6 +6,7 @@ const h1 = document.querySelector("h1");
 const changeTitle = function () {
   h1.innerText = "Nuovo titolo";
 };
+
 changeTitle();
 
 /* ESERCIZIO 2
@@ -15,6 +16,7 @@ changeTitle();
 const addClassToTitle = function () {
   h1.classList.add("myHeading");
 };
+
 addClassToTitle();
 
 /* ESERCIZIO 3
@@ -24,6 +26,7 @@ const pChildrenOfDiv = document.querySelectorAll("div p");
 const changePcontent = function () {
   pChildrenOfDiv.forEach((node) => (node.innerText = "Questo è il nuovo testo dopo l'esercizio 3"));
 };
+
 changePcontent();
 
 /* ESERCIZIO 4
@@ -33,13 +36,20 @@ const links = document.querySelectorAll("a:not(footer a)");
 const changeUrls = function () {
   links.forEach((link) => (link.href = "https://www.google.com"));
 };
+
 changeUrls();
 
 /* ESERCIZIO 5
         Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
      */
+const secondList = document.getElementById("secondList");
+const addToTheSecond = function () {
+  const newLi = document.createElement("li");
+  newLi.innerText = "new list item";
+  secondList.appendChild(newLi);
+};
 
-const addToTheSecond = function () {};
+addToTheSecond();
 
 /* ESERCIZIO 6
         Scrivi una funzione che aggiunga un paragrafo al primo div
