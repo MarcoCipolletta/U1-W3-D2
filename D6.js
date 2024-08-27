@@ -70,7 +70,7 @@ addParagraph(firstDiv);
 
 const firstUl = document.querySelector("ul");
 const hideFirstUl = function (tag) {
-  tag.remove();
+  tag.innerHTML = "";
 };
 
 hideFirstUl(firstUl);
