@@ -159,11 +159,12 @@ const generateTable = function () {
   tableArea.appendChild(table);
 };
 
-const generatedTable = generateTable();
+generateTable();
 
 /* ESERCIZIO 12
         Crea una funzione che aggiunga una riga alla tabella precedentemente creata e fornisca i dati necessari come parametri
      */
+const tbody = document.querySelector("tbody");
 const addImg = document.createElement("img");
 addImg.src = `https://picsum.photos/600/450?q=10`;
 addImg.alt = "Immagine prodotto";
@@ -189,7 +190,7 @@ const addRow = function (img, name, quantity, price) {
   tr.appendChild(quantityCell);
   tr.appendChild(priceCell);
 
-  generatedTable.appendChild(tr);
+  tbody.appendChild(tr);
 };
 
 addRow(addImg, "Prodotto 6", "6 pezzi", "$60.00");
@@ -198,7 +199,11 @@ addRow(addImg, "Prodotto 6", "6 pezzi", "$60.00");
        Crea una funzione che nasconda le immagini della tabella quando eseguita
      */
 
-const hideAllImages = function () {};
+const hideAllImages = function () {
+  const imgContainer = document.querySelectorAll("tbody tr td:first-of-type");
+  imgContainer.forEach((img) => (img.innerHTML = ""));
+};
+hideAllImages();
 
 /* EXTRA ESERCIZIO 15
        Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
